@@ -1,24 +1,25 @@
 # DSE ICT 試算表互動學習平台
 
-陳老師的繁體中文教學網站，包含 33 個函數的說明及 35 題即時批改練習。
+陳老師的繁體中文教學網站。函數範圍依照老師提供的 DSE 試卷末頁函數表，只包含以下 22 個函數。
 
-GitHub Pages 使用 `main` 分支的 `/docs` 資料夾，無需安裝或編譯。完成進度只保存在學生自己的瀏覽器。
+[開啟網站](https://kaspar526.github.io/ict-spreadsheet-lab/)
 
-# HK S4 ICT Excel 闖關學習平台
+## 函數及練習
 
-A Traditional Chinese classroom site based on the six spreadsheet topics and table data in the requested W's ICT Classroom reference. All teacher labels use 陳老師.
+- 統計函數（7 題）：SUM、AVERAGE、RANK、MAX、MIN、COUNT、COUNTIF。
+- 數學與數字函數（5 題）：ROUND、INT、SQRT、RAND、SUMIF。
+- 邏輯與資訊函數（4 題）：IF、AND、OR、NOT。
+- 文字函數（5 題）：LEFT、RIGHT、MID、LEN、FIND。
+- 查閱函數（3 題）：XLOOKUP，含向左查閱、參數解說及檢索動畫。
 
-The exercise bank now includes 35 tasks, with at least one exercise for every function advertised on its page:
+共 22 個函數的功能、語法、例子和使用重點，以及 24 題可即時批改的練習。儲存格參照頁亦提供相對、絕對及混合參照的公式位移示範。表外函數及其練習、說明和專用表格欄列已移除。
 
-- Statistics: SUM, AVERAGE, RANK, MAX, MIN, COUNT, COUNTA, COUNTBLANK, COUNTIF, LARGE, SMALL (11).
-- Math and numbers: ABS, ROUND, INT, SQRT, RAND, SUMIF (6).
-- Logic and information: IF, AND, OR, NOT, ISBLANK (5).
-- Text: LEFT, RIGHT, MID, LEN, UPPER, LOWER, PROPER, TRIM, FIND, VALUE (10).
-- Lookup: the three XLOOKUP range exercises, including left lookup (3).
-- Cell references: five original reference modes with fruit data and movement controls.
+學生可點選函數名稱或黃色儲存格選題。完成進度只保存在使用者自己的瀏覽器；更新後僅計算仍保留題目的進度。
 
-Each function name is a selectable exercise button with a purpose summary. A guide beside each exercise explains the function, syntax, parameters, examples, and common pitfalls. RANK includes descending/ascending formulas and tied ranks; XLOOKUP covers all six parameters. The 33 guides and their independent worked examples are in `docs/guides.js`. Yellow worksheet cells also select questions. Exercises provide syntax, formula blanks, hints, immediate grading, full answers, and local completion counts. Supplemental result rows and one text example with extra spaces extend the original data. RAND is checked by formula rather than an unstable numeric result; one example value is retained during the session. Existing completion IDs are preserved.
+## GitHub Pages
 
-`docs/data.js` contains tables and tasks, `docs/app.js` handles interactions, and `docs/engine.js` safely evaluates formulas without eval. The site stores only completion IDs in localStorage.
+使用 `main` 分支的 `/docs` 資料夾發佈，所有資源均採相對路徑，無需編譯。
 
-Run `node tests/verify.cjs` to verify function coverage, all 35 exercise answers, wrong-answer handling, selection, progress, reference movement, and route behavior.
+`docs/data.js` 保存函數範圍、表格及題目；`docs/guides.js` 保存函數說明；`docs/app.js` 處理互動及批改；`docs/engine.js` 計算公式。
+
+執行 `node tests/verify.cjs` 核對函數範圍、例子、24 題練習、進度及儲存格參照。
