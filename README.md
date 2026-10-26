@@ -2,7 +2,7 @@
 
 陳老師的繁體中文教學網站。函數範圍依照老師提供的 DSE 試卷末頁函數表，只包含以下 22 個函數。
 
-[開啟網站](https://kaspar526.github.io/ict-spreadsheet-lab/)
+[開啟網站](https://kaspar526.github.io/ict-spreadsheet-lab/?v=20261026-reset-2)
 
 ## 函數及練習
 
@@ -23,3 +23,5 @@
 `docs/data.js` 保存函數範圍、表格及題目；`docs/guides.js` 保存函數說明；`docs/app.js` 處理互動及批改；`docs/engine.js` 計算公式。
 
 執行 `node tests/verify.cjs` 核對函數範圍、例子、24 題練習、進度及儲存格參照。
+
+網站啟動時會移除舊版的試算表完成紀錄。靜態資源附有版本編號，以避免沿用舊版程式；關閉或再次顯示網頁時亦會清空本次作答狀態。

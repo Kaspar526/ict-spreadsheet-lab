@@ -34,5 +34,7 @@ function lookupPage(){const t=LOOKUPS[lookupTask],r=lookupInputs[t.id]||{},done=
 function render(){clearTimeout(animationTimer);const requested=decodeURIComponent(location.hash.slice(1)||'references');page=PAGES.some(([id])=>id===requested)?requested:'references';nav();if(page==='references')referencePage();else if(page==='lookup')lookupPage();else functionPage();document.title='HK S4 ICT Excel 闖關學習平台';window.scrollTo({top:0,behavior:'instant'});}
 window.addEventListener('hashchange',render);window.addEventListener('keydown',e=>{if(page!=='references'||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;const dir={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]}[e.key];if(dir){e.preventDefault();move(...dir);}});render();
 
-// A browser-history restore can reuse a page without rerunning its scripts.
-window.addEventListener('pageshow',event=>{if(!event.persisted)return;solved=[];for(const id of Object.keys(responses))delete responses[id];revealedAnswers.clear();lookupInputs={};animationStep=0;render();});
+// Clear the attempt before a page is frozen/closed and whenever it is shown again.
+function resetAttempt(){solved=[];for(const id of Object.keys(responses))delete responses[id];revealedAnswers.clear();lookupInputs={};animationStep=0;render();}
+window.addEventListener('pagehide',resetAttempt);
+window.addEventListener('pageshow',resetAttempt);
